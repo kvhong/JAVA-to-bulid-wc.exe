@@ -11,11 +11,15 @@ public class wctest{
 	public static void main(String[] args) throws IOException{
 		String str = null;
 		wcfunction wcf = new wcfunction();
+		//循环询问命令输入
 		while(true) {
+			System.out.print("请输入命令:");
+			//命令输入
 			scanner = new Scanner(System.in);
 			if(scanner.hasNext()) {
 			str=scanner.nextLine();
 			}
+			//分割命令，第一个作为判断第二个为文件路径
 			String[] strword = str.split(" ");
 			if(strword[0].equals("-c")) {
 				wcf.getCharacternumber(strword[1]);
@@ -31,6 +35,8 @@ public class wctest{
 				wcf.diffline(file);
 			}else if(strword[0].equals("?")) {
 				wcf.help();
+			}else if(strword[0].equals("end")) {
+				break;
 			}
 		}
 	}
