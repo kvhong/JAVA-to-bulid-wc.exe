@@ -21,23 +21,35 @@ public class wctest{
 			}
 			//分割命令，第一个作为判断第二个为文件路径
 			String[] strword = str.split(" ");
+			if(strword.length==2) {
 			if(strword[0].equals("-c")) {
-				wcf.getCharacternumber(strword[1]);
+				int chara=wcf.getCharacternumber(strword[1]);
+				System.out.println("该文件的字符数:"+chara);
 			}else if(strword[0].equals("-w")) {
-				wcf.getwordnumber(strword[1]);
+				int word=wcf.getwordnumber(strword[1]);
+				System.out.println("该文件的词数:"+word);
 			}else if(strword[0].equals("-l")) {
-				wcf.getlinenumber(strword[1]);
+				int line=wcf.getlinenumber(strword[1]);
+				System.out.println("该文件的行数:"+line);
 			}else if(strword[0].equals("-a")) {
 				File file = new File(strword[1]);
 				wcf.diffline(file);
 			}else if(strword[0].equals("-s-a")) {
 				File file = new File(strword[1]);
 				wcf.diffline(file);
-			}else if(strword[0].equals("?")) {
-				wcf.help();
-			}else if(strword[0].equals("end")) {
-				break;
 			}
+			}else {
+				if(strword[0].equals("?")) {
+					wcf.help();
+				}else if(strword[0].equals("-x")) {
+					wcGUI.main(null);
+				}else if(strword[0].equals("end")) {
+					break;
+				}else {
+					System.out.println("命令输入错误，请重新输入！");
+				}
+			}
+				
 		}
 	}
 }
