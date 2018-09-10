@@ -62,7 +62,7 @@ public class wcGUI {
 		frmWc.setTitle("wc");
 		frmWc.setResizable(false);
 		frmWc.setBounds(280, 50, 800, 600);
-		frmWc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWc.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
 		frmWc.getContentPane().add(panel, BorderLayout.CENTER);
